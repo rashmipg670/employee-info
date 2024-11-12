@@ -1,0 +1,36 @@
+<div class="date-range-picker">
+  <!-- Date Range Input Fields -->
+  <mat-form-field appearance="outline" class="date-range-field">
+    <mat-label>Start Date</mat-label>
+    <input matInput [value]="startDate | date:'d MMM yyyy'" readonly (click)="openCalendar('start')">
+    <!-- <mat-error *ngIf="isStartDateInvalid()">Start Date cannot be in the past.</mat-error> -->
+  </mat-form-field>
+
+  <span class="arrow">→</span>
+
+  <mat-form-field appearance="outline" class="date-range-field">
+    <mat-label>End Date</mat-label>
+    <input matInput [value]="endDate ? (endDate | date:'d MMM yyyy') : ''" readonly (click)="openCalendar('end')">
+    <!-- <mat-error *ngIf="isEndDateInvalid()">End Date must be after Start Date.</mat-error> -->
+  </mat-form-field>
+
+  <!-- Calendar Popup -->
+  <div *ngIf="calendarOpen" class="calendar-popup">
+    <!-- Quick Date Selection Buttons -->
+    <div class="quick-buttons">
+      <button mat-button (click)="setToday()">Today</button>
+      <button mat-button (click)="setNextMonday()">Next Monday</button>
+      <button mat-button (click)="setNextTuesday()">Next Tuesday</button>
+      <button mat-button (click)="setOneWeekAhead()">After 1 week</button>
+    </div>
+
+    <!-- Calendar -->
+    <mat-calendar [(selected)]="selectedDate" (selectedChange)="onDateChange($event)"></mat-calendar>
+
+    <!-- Action Buttons -->
+    <div class="calendar-actions">
+      <button mat-button (click)="cancel()">Cancel</button>
+      <button mat-raised-button color="primary" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>

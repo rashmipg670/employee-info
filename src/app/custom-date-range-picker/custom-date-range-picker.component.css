@@ -1,0 +1,40 @@
+.date-range-picker {
+    display: flex;
+    align-items: center;
+  }
+  
+  .date-range-field {
+    width: 150px;
+    margin-right: 8px;
+  }
+  
+  .arrow {
+    margin: 0 8px;
+    font-size: 1.5rem;
+    color: #2196F3;
+  }
+  
+  .calendar-popup {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    width: 300px;
+    border-radius: 8px;
+    top: 50px; /* Adjust as needed */
+    z-index: 1000;
+  }
+  
+  .quick-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  .calendar-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  

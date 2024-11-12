@@ -1,0 +1,53 @@
+<!-- employee-form.component.html -->
+<mat-toolbar class="employee-title">{{ employee ? 'Edit Employee Details' : 'Add Employee Details' }}</mat-toolbar>
+
+<div>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Employee name</mat-label>
+      <mat-icon matPrefix class="employee-info">person</mat-icon>
+      <input  matInput placeholder="Employee name" formControlName="employeeName" />
+    </mat-form-field>
+
+     <!-- Role Selection -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Select role</mat-label>
+    <mat-icon matPrefix class="employee-info" >work</mat-icon>
+    <mat-select formControlName="position" >
+      <mat-option *ngFor="let role of roles" [value]="role" >{{ role }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <app-custom-date-range-picker
+  formControlName="dateRange"
+  [startDate]="employeeForm.get('dateRange.startDate')?.value"
+  [endDate]="employeeForm.get('dateRange.endDate')?.value"
+  (startDateChange)="employeeForm.get('dateRange.startDate')?.setValue($event)"
+  (endDateChange)="employeeForm.get('dateRange.endDate')?.setValue($event)">
+</app-custom-date-range-picker> 
+  
+    <!-- Displaying validation error if the custom component is invalid -->
+    <!-- <div *ngIf="employeeForm.get('dateRange')?.hasError('required') && employeeForm.get('dateRange')?.touched">
+      <mat-error>Date range is required</mat-error>
+    </div>
+    <div *ngIf="employeeForm.get('dateRange')?.hasError('invalidRange') && employeeForm.get('dateRange')?.touched">
+      <mat-error>End date must be after start date</mat-error>
+    </div>  -->
+    
+
+
+  
+    <!-- {{ employee ? 'Save' : 'Add' }} -->
+    <!-- <div class="form-buttons">
+      <button class="employee-title"  type="button" (click)="cancel()">Cancel</button>
+      <button  class="employee-title"  type="submit"  (click)="onSubmit()">Save</button>
+    </div> -->
+
+    <div class="button-container save-info">
+      <button class="btn cancel">Cancel</button>
+      <button class="btn save">Save</button>
+    </div>
+    
+  </form>
+</div>

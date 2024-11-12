@@ -1,0 +1,37 @@
+<!-- employee-list.component.html -->
+<mat-toolbar class="employee-title">Employee List</mat-toolbar>
+
+<div class="employee-list" *ngIf="employees.length === 0">
+  <!-- <mat-card *ngIf="employees.length === 0"> -->
+    <!-- <mat-card-content> -->
+      <!-- <div class="empty-state"> -->
+        <div class="center-container">
+          <img src="assets\images\noEmployee.jpg" alt="noEmployee" class="center-image">
+          <!-- <p class="no-emp">No employee records found</p> -->
+        </div>
+        <!-- <img src="assets\images\noEmployee.jpg" alt="noEmployee" class="profile-image empty-state"> -->
+      <!-- </div> -->
+    <!-- </mat-card-content> -->
+  <!-- </mat-card> -->
+
+  <div *ngIf="employees.length > 0" class="employee-section">
+    <h3>Current employees</h3>
+    <div *ngFor="let employee of employees" class="employee-card">
+      <div class="employee-info">
+        <h4>{{ employee.employeeName }}</h4>
+        <p>{{ employee.position }}</p>
+        <p class="date">{{ employee.startDate|date }}</p>
+        <p class="date">{{ employee.endDate|date }}</p>
+      </div>
+      <div class="delete-button">
+        <img src="assets\images\noEmployee.jpg" alt="noEmployee" class="center-image">
+        <button (click)="deleteEmployee(employee.id)"></button>
+      </div>
+    </div>
+  </div>
+
+
+  <button mat-fab  class="add-button" (click)="openAddEmployeeForm()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

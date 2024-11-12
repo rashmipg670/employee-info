@@ -1,0 +1,47 @@
+/* employee-list.component.css */
+.employee-list {
+    padding: 16px;
+  }
+  
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #757575;
+  }
+  
+  .add-button {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background-color: #1DA1F2;; /* Blue background for save */
+    color: white; /* White text color */
+  }
+
+  /* profile.component.scss */
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.employee-title{
+  background-color: #1DA1F2;
+  color: #FFFFFF
+
+ }
+
+ 
+
+.center-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  height: 100vh;           /* Full viewport height */
+}
+
+
+
+  
