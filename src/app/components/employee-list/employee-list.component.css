@@ -9,6 +9,10 @@
     align-items: center;
     color: #757575;
   }
+
+  .margin-left{
+    margin-left: 10px;
+  }
   
   .add-button {
     position: fixed;
@@ -42,6 +46,9 @@
   height: 100vh;           /* Full viewport height */
 }
 
+.width {
+width: 75px;
+}
 
 
   

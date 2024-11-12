@@ -14,24 +14,30 @@
     <!-- </mat-card-content> -->
   <!-- </mat-card> -->
 
-  <div *ngIf="employees.length > 0" class="employee-section">
-    <h3>Current employees</h3>
-    <div *ngFor="let employee of employees" class="employee-card">
-      <div class="employee-info">
-        <h4>{{ employee.employeeName }}</h4>
-        <p>{{ employee.position }}</p>
-        <p class="date">{{ employee.startDate|date }}</p>
-        <p class="date">{{ employee.endDate|date }}</p>
-      </div>
-      <div class="delete-button">
-        <img src="assets\images\noEmployee.jpg" alt="noEmployee" class="center-image">
-        <button (click)="deleteEmployee(employee.id)"></button>
-      </div>
+
+</div>
+
+<div *ngIf="employees.length > 0" class="employee-section margin-left">
+  <h3>Current employees</h3>
+  <div style="display: flex;flex-direction: row;" *ngFor="let employee of employees" class="employee-card">
+    <div class="employee-info">
+      <h4>{{ employee.employeeName }}</h4>
+      <p>{{ employee.position }}</p>
+      <p class="date">{{ employee.startDate|date }}</p>
+      <p class="date">{{ employee.endDate|date }}</p>
+      
     </div>
+    <div class="delete-button">
+      
+      <button  style="border:none;margin-left: 25px;margin-top: 40px;"(click)="deleteEmployee(employee.id)">
+        <img src="assets\images\Group 20026.jpg" alt="noEmployee" class="center-image width">
+      </button>
+    </div>
+    
   </div>
 
-
-  <button mat-fab  class="add-button" (click)="openAddEmployeeForm()">
-    <mat-icon>add</mat-icon>
-  </button>
 </div>
+
+
+<button mat-fab  class="add-button" (click)="openAddEmployeeForm()">
+  <mat-icon>add</mat-icon></button>
